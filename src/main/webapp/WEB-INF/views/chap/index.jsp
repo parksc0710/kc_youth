@@ -68,7 +68,7 @@
                 <h3 id="header-text-sub2">ADIEU!<br>THE MEMORY OF 2024</h3>
             </div>
         </div>
-        <div id="resigter"><a href="/resister.do"><span class="hidden">말씀노트 신청하기</span></a></div>
+        <div id="resigter"><a href="<c:url value="/note"/>"><span class="hidden">말씀노트 신청하기</span></a></div>
         <div class="quick-menu">
             <ul>
                 <li class="on"><a href="#section1"><i class="n1"></i><span class="name">Intro</span></a></li>
@@ -332,17 +332,17 @@
 
                 </div>
                 <div class="top-info">
-                    <h5>전체 (${replyCount})</h5>
+                    <h5 class="top-info">전체 (${replyCount})</h5>
                     <div class="search">
                         <input type="text" class="insearch" title="검색어 입력" placeholder="이름으로 작성 글 찾기">
-                        <a href="#this" onclick="javascript:clickSearch();" class="in-btn">검색</a> <!-- 검색 버튼 클릭 시 /reply/{searchName}로 요청 보내는 이벤트 발생 필요 -->
+                        <a class="in-btn">검색</a>
                     </div>
                 </div>
                 <ul class="post">
                     <!-- 카드 복사 -->
                     <c:forEach var="reply" items="${replyList}">
                         <li class="post-item ${reply.background}" data-id="${reply.id}">
-                            <p><span class="inner"><span class="more">더보기</span><span class="contain">${reply.content}</span></span></p>
+                            <p><span class="inner"><span class="contain"><span class="more">더보기</span>${reply.content}</span></span></p>
                             <div class="bottom-area">
                                 <span class="writer">${reply.name}&nbsp;${reply.generation.substring(2)}</span>
                                 <div class="time"><span>${reply.regDate}</span></div>
@@ -471,7 +471,7 @@
 <div class="layer-popup more-wrap" style="display:none;">
     <div class="layer-wrap">
         <div class="post-item bg3">
-            <p><span class="inner">곡 ‘On The Ground’는 Jorgen Odegard, ojivolta 등의 실력파 해외 프로듀서들과 더블랙레이블의 대표 프로듀서 TEDDY와 24의 협업으로 탄생한 곡이다. 긴장감이 맴도는, 신비로운 사운드와 유려하게 흘러가는 로제의 독보적인 보컬과 더해져 지금껏 느껴보지 못한 새로운 쾌감을 선사한다.못한 새로운 쾌감을 선사한다.못한 새로운 쾌감을 선사한다.</span></p>
+            <p><span class="inner">곡 ‘On The Ground’</span></p>
             <div class="bottom-area">
                 <span class="writer">천*</span>
                 <div class="time"><span>30분전</span></div>
@@ -497,70 +497,6 @@
     </div>
     <span class="dimm"></span>
 </div>
-    <script>
-        function calHeight(){
-            $('ul .post-item .inner').each(function(){
-                var rvTxt = $(this).find('.contain').height();
-                if(rvTxt < 144){
-                    $(this).find('.more').hide();
-                    $(this).css("pointer-events","none");
-                }else{
-                    $(this).addClass('more-layer')
-                }
-            })
-        };
-        $(document).ready(function(){
-            calHeight();
-
-            $("body").on('click', '.more-layer', function(e){
-                e.preventDefault();
-                $('.layer-popup.more-wrap').show();
-                $('#resigter, .quick-menu').css('z-index','0');
-            });
-            $("body").on('click', '.layer-popup', function(e){
-                e.preventDefault();
-                $('.layer-popup.more-wrap').hide();
-                $('#resigter, .quick-menu').css('z-index','50');
-            });
-            //삭제 버튼
-            $("body").on('click', '.delete', function(e){
-                e.preventDefault();
-                $('.layer-popup.delete-wrap').show();
-                $('#resigter, .quick-menu').css('z-index','0');
-            });
-            $("body").on('click', '.delete-wrap .btn.n2', function(e){
-                e.preventDefault();
-                $('.layer-popup.delete-wrap').hide();
-                $('#resigter, .quick-menu').css('z-index','50');
-            });
-        })
-        "use strict"
-
-        // Adding scroll event listener
-        document.addEventListener('scroll', horizontalScroll);
-
-        //Selecting Elements
-        let sticky = document.querySelector('.sticky');
-        let stickyParent = document.querySelector('.sticky-parent');
-
-        let scrollWidth = sticky.scrollWidth;
-        let verticalScrollHeight = stickyParent.getBoundingClientRect().height-sticky.getBoundingClientRect().height;
-
-        //Scroll function
-        function horizontalScroll(){
-
-            //Checking whether the sticky element has entered into view or not
-            let stickyPosition = sticky.getBoundingClientRect().top;
-            if(stickyPosition > 1){
-                return;
-            }else{
-                let scrolled = stickyParent.getBoundingClientRect().top; //how much is scrolled?
-                sticky.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
-
-            }
-        }
-
-    </script>
     <script>
         const { Engine, Render, Runner, World, Bodies, Body, Mouse, MouseConstraint, Events, Vertices } = Matter;
 

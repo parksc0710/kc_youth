@@ -51,9 +51,14 @@ public class MainController {
     @ResponseBody
     public ResponseEntity<?> replySearchByName(@PathVariable String searchName) {
         log.info("/reply/{searchName}으로 요청 들어옴! 검색어 : " + searchName);
+
         List<ReplyListResponseDTO> searchResultList = replyService.findByName(searchName);
 
-        return ResponseEntity.status(HttpStatus.OK).body(searchResultList);
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("replyList",  searchResultList);
+        response.put("replyCount", searchResultList.size());
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @PostMapping("/delete")
@@ -76,6 +81,7 @@ public class MainController {
             if (isDeleted) {
                 response.put("success", true);
                 response.put("message", "삭제되었습니다.");
+                response.put("replyCount", replyService.countAll());
             } else {
                 response.put("success", false);
                 response.put("message", "게시물 삭제에 실패했습니다. 관리자에게 문의해 주세요.");

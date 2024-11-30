@@ -63,6 +63,10 @@ $(document).ready(function () {
         // 삭제 팝업을 표시
         $('.layer-popup.delete-wrap').show();
 
+        // 삭제 팝업 표시 시 비밀번호 입력란 초기화
+        $('#delPassword').val('');
+
+
         // 삭제하기 버튼 클릭 시 AJAX로 삭제 요청 보내기
         $("body").on('click', '.delete-wrap .btn.n1', function (e) {
             e.preventDefault();
@@ -90,7 +94,10 @@ $(document).ready(function () {
                         // 팝업 닫기
                         $('.layer-popup.delete-wrap').hide();
                         // 삭제된 게시물을 화면에서 제거
-                        window.location.href = '/index';  // index 페이지로 이동
+                        postItem.remove();
+                        if (response.replyCount !== undefined) {
+                            $('.top-info h5').text(`전체 (${response.replyCount})`);
+                        }
                     } else {
                         alert(response.message);
                     }
@@ -223,9 +230,166 @@ $('#comment').keyup(function (e) {
     };
 });
 
-function clickSearch(){
-    alert('검색 아이콘 눌렀어!');
+// '더보기' 누를 시 모달 창 팝업하는 함수
+function calHeight() {
+    $('ul .post-item .inner').each(function(){
+        var rvTxt = $(this).find('.contain').height();
+        if(rvTxt < 144){
+            $(this).find('.more').hide();
+            $(this).css("pointer-events","none");
+        } else {
+            $(this).addClass('more-layer')
+        }
+    })
+};
+
+// '더보기' 버튼 클릭 시 모달에 내용 추가 및 모달 표시
+$(document).ready(function() {
+    calHeight();
+
+    // '더보기' 버튼 클릭 시 모달에 내용 추가 및 모달 표시
+    $("body").on('click', '.more-layer', function(e) {
+        e.preventDefault();
+
+        const postItem = $(this).closest('.post-item'); // 클릭된 게시물 항목
+        const content = postItem.find('.contain').text(); // 게시물 내용
+        const writer = postItem.find('.writer').text(); // 작성자
+        const time = postItem.find('.time span').text(); // 작성일
+
+        // 모달의 내용 업데이트
+        const modal = $('.layer-popup.more-wrap');
+        modal.find('.post-item .inner').text(content); // 모달에 내용 추가
+        modal.find('.post-item .writer').text(writer); // 작성자
+        modal.find('.post-item .time span').text(time); // 작성일
+
+        // 모달 표시
+        modal.show();
+        $('#resigter, .quick-menu').css('z-index', '0');
+    });
+
+    $("body").on('click', '.more-layer', function(e){
+        e.preventDefault();
+        $('.layer-popup.more-wrap').show();
+        $('#resigter, .quick-menu').css('z-index','0');
+    });
+    $("body").on('click', '.layer-popup', function(e){
+        e.preventDefault();
+        $('.layer-popup.more-wrap').hide();
+        $('#resigter, .quick-menu').css('z-index','50');
+    });
+    //삭제 버튼
+    $("body").on('click', '.delete', function(e){
+        e.preventDefault();
+        $('.layer-popup.delete-wrap').show();
+        $('#resigter, .quick-menu').css('z-index','0');
+    });
+    $("body").on('click', '.delete-wrap .btn.n2', function(e){
+        e.preventDefault();
+        $('.layer-popup.delete-wrap').hide();
+        $('#resigter, .quick-menu').css('z-index','50');
+    });
+});
+
+
+// Adding scroll event listener
+document.addEventListener('scroll', horizontalScroll);
+
+//Selecting Elements
+let sticky = document.querySelector('.sticky');
+let stickyParent = document.querySelector('.sticky-parent');
+
+let scrollWidth = sticky.scrollWidth;
+let verticalScrollHeight = stickyParent.getBoundingClientRect().height-sticky.getBoundingClientRect().height;
+
+//Scroll function
+function horizontalScroll(){
+
+    //Checking whether the sticky element has entered into view or not
+    let stickyPosition = sticky.getBoundingClientRect().top;
+    if(stickyPosition > 1){
+        return;
+    }else{
+        let scrolled = stickyParent.getBoundingClientRect().top; //how much is scrolled?
+        sticky.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
+
+    }
 }
+
+
+// 이름으로 작성 글 찾을 시 발생하는 이벤트
+// 검색 버튼 클릭 이벤트
+$("body").on("click", ".in-btn", function (e) {
+    e.preventDefault();
+    executeSearch(); // 검색 실행 함수 호출
+});
+
+// 검색 입력 필드에서 엔터 키 입력 이벤트
+$("body").on("keydown", ".insearch", function (e) {
+    if (e.key === "Enter") { // Enter 키 확인
+        e.preventDefault(); // 기본 엔터 동작(폼 제출) 방지
+        executeSearch(); // 검색 실행 함수 호출
+    }
+});
+
+// 검색 실행 함수
+function executeSearch() {
+    const searchName = $(".insearch").val().trim(); // 입력된 검색어 가져오기
+
+    if (!searchName) {
+        alert("검색어를 입력해주세요.");
+        return;
+    }
+
+    $.ajax({
+        url: `/reply/${encodeURIComponent(searchName)}`, // 검색어를 URL에 포함
+        type: 'GET',
+        success: function (response) {
+            if (response.success) {
+                if (response.replyList.length === 0) {
+                    alert("검색 결과가 없습니다.");
+                } else {
+                    renderSearchResults(response.replyList); // 검색 결과 렌더링
+                    if (response.replyCount !== undefined) { // 검색 결과 개수 화면에 렌더링
+                        $('.top-info h5').text(`검색 결과 (${response.replyCount})`);
+                    }
+                }
+            } else {
+                alert(response.message || "검색 실패");
+            }
+        },
+        error: function () {
+            alert("서버 요청 중 오류가 발생했습니다.");
+        }
+    });
+}
+
+// 검색 결과를 렌더링하는 함수
+function renderSearchResults(replyList) {
+    const postContainer = $(".post"); // 게시물 리스트가 들어가는 컨테이너
+    postContainer.empty(); // 기존 게시물 제거
+
+    if (replyList.length === 0) {
+        postContainer.append("<li>검색 결과가 없습니다.</li>");
+        return;
+    }
+
+    replyList.forEach(reply => {
+        const postItem = `
+            <li class="post-item ${reply.background}" data-id="${reply.id}">
+                <p><span class="inner"><span class="more">더보기</span><span class="contain">${reply.content}</span></span></p>
+                <div class="bottom-area">
+                    <span class="writer">${reply.name}&nbsp;${reply.generation.substring(2)}</span>
+                    <div class="time"><span>${reply.regDate}</span></div>
+                </div>
+                <a class="delete"><span>삭제</span></a>
+            </li>
+        `;
+        postContainer.append(postItem);
+    });
+    // 동적으로 추가된 요소에 대해 높이 계산 및 클래스 적용
+    calHeight();
+}
+
 // 글 등록 시 입력값 검증
 const checkResultList = [false, false, false, false, false];
 

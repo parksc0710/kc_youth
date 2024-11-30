@@ -1,0 +1,88 @@
+.guide.event {
+    width: 100%;
+}
+.event-useguide .title {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 28px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    padding: 25px 0;
+}
+.event-useguide .title .txt:after {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #333;
+    border-width: 0 2px 2px 0;
+    vertical-align: middle;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+    margin-left: 20px;
+    margin-top: -15px;
+}
+.event-useguide .title.open .txt:after {
+    border-width: 2px 0 0 2px;
+    vertical-align: middle;
+    margin-left: 20px;
+    margin-top: 0;
+}
+.event-useguide .content {
+    display: none;
+    background: #fafafa;
+}
+.event-useguide .container {
+    width: 720px;
+    margin: 0 auto;
+}
+.event-useguide .content.open {
+    display: block;
+}
+.guide.event .event-useguide .content ul {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+.guide.event .event-useguide .content ul li {
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 20px;
+    word-break: keep-all;
+    width: auto;
+    line-height: 1.4;
+    font-size: 18px;
+    display:flex;
+    justify-content:flex-start;
+}
+.guide.event .event-useguide .content ul li em {
+    color: #333;
+    font-weight: bold;
+    width:15%;
+}
+.guide.event .event-useguide .content ul.right li::before {
+    content: "-";
+    display: inline-block;
+    position: absolute;
+    left: -20px;
+}
+
+.guide.event.white-txt * {
+    color: #fff !important;
+}
+.guide.event.white-txt .event-useguide .content ul li.dot::before {
+    background: #fff;
+}
+.guide.event.white-txt .event-useguide .title .txt:after {
+    border-color: #fff;
+}
+.guide.event .event-useguide .content ul.right{
+    width:unset;
+    margin:unset;
+    padding:unset;
+    padding-left:20px;
+}

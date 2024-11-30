@@ -6,10 +6,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks to God</title>
-<%--    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />--%>
+    <title>맑은샘광천교회 청년부 2024</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/assets/images/favicon.ico" />
     <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/guide.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/assets/scss/reset.css">
     <link rel="stylesheet" href="/assets/scss/index.css">
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
 </head>
 <body>
     <header id="section1" class="qmenu">

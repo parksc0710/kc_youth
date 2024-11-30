@@ -1,0 +1,271 @@
+#album-about{
+    & h2{
+        font-size:3rem;
+        font-weight:600;
+        @include mq('small-screen-3'){
+            font-size:2.8rem
+        };
+    }
+    & p{
+        width:60%;
+        font-size:1.8rem;
+        line-height:1.7;
+        margin-top:2.5rem;
+        @include mq('small-screen-3'){
+            width:100%
+        };
+    }
+}
+#profile{
+    width:75%;
+    &-box{
+        display:flex;
+        align-items:flex-end;
+        & .img-box img{
+            width:25vw;
+            @include mq('small-screen-2'){
+                width:35vw
+            };
+            @include mq('small-screen-3'){
+               width:44vw
+            };
+        }
+    }
+    & #profile-text{
+        margin-left:3rem;
+        h3{
+            font-size:2.5rem;
+            font-weight:800;
+            margin-top:1rem;
+            line-height:2;
+        }
+        p{
+            font-size:1.5rem;
+            color:rgba($color: #ffffff, $alpha: .8);
+            & span{
+                display:block;
+            }
+        }
+    }
+}
+#photo-gallery{
+    &-section{
+        width:70%;
+        position:relative;
+        @include mq('small-screen-1'){
+            width:80%;
+            margin:5rem auto 0;
+        };
+        @include mq('small-screen-2'){
+            width:80%;
+            margin:5rem auto 0;
+        };
+        @include mq('small-screen-3'){
+            width:100%;
+            margin:5rem auto 0;
+        };
+        & .slick-arrow{
+            position:absolute;
+            top:50%;
+            background-color:transparent;
+            border:none;
+            color:transparent;
+        }
+        & .slick-prev.slick-arrow{
+            left:0;
+            &::after{
+                content:'';
+                display:inline-block;
+                background:url(../images/prev_arrow.png) no-repeat center / 100%;
+                width:48px;
+                height:48px;
+                margin-left:-7rem;
+                opacity:.7;
+                @include mq('small-screen-3'){
+                    width:36px;
+                    height:36px;
+                };
+            }
+            &:hover::after{
+                opacity:1;
+            }
+        }
+        & .slick-next.slick-arrow{
+            right:-5rem;
+            &::after{
+                content:'';
+                display:inline-block;
+                background:url(../images/next_arrow.png) no-repeat center / 100%;
+                width:48px;
+                height:48px;
+                opacity:.7;
+                @include mq('small-screen-3'){
+                    width:36px;
+                    height:36px;
+                };
+            }
+            &:hover::after{
+                opacity:1;
+            }
+        }
+    }
+    & .photo-box{
+        & .photo-wrap{
+            overflow:hidden;
+            width:30vw;
+            height:33vw;
+            background-repeat:no-repeat;
+            background-size:120%;
+            background-position:center;
+            margin:0 2rem 0 0;
+            @include mq('small-screen-3'){
+                height:70vw;
+            };
+        }
+        & img{
+            height:40vw;
+            width:auto;
+        }
+    }
+}
+.bx-viewport{
+    height:650px !important;
+    @include mq('small-screen-2'){
+        height:500px !important;
+    };
+    @include mq('small-screen-3'){
+        height:350px !important;
+    };
+}
+#discography .container:nth-of-type(2){
+    margin-right:0;
+    @include mq('small-screen-3'){
+        margin-left:0
+    };
+    & li.album-info:nth-child(1){
+        @include mq('small-screen-3'){
+            margin-left:40px;
+        };
+    }
+}
+#discography-albums{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    & li:last-child{
+        opacity:0;
+    }
+
+    & .album-info{
+        a{
+            width:25vw;
+            display:block;
+        }
+        a img{
+            border-radius:5px;
+            width:25vw;
+            @include mq('small-screen-3'){
+                width:30vw;
+            };
+        }
+        h3{
+            font-size:2rem;
+            margin-top:1.5rem;
+            line-height:1.8;
+        }
+        span{
+            font-size:1.4rem;
+            display:block;
+            line-height:1.8;
+        }
+    }
+}
+#video{
+    iframe{
+        width:60vw;
+        height:30vw;
+        border:none;
+        @include mq('small-screen-2'){
+            width:70vw;
+            height:35vw;
+        };
+        @include mq('small-screen-3'){
+            width:100%;
+            height:40vw;
+        };
+    }
+}
+// scroll-animation
+.section{
+    position:relative;
+}
+.show-up{
+    opacity:0;
+}
+.show-up.active{
+    animation:moveUp 1s forwards;
+}
+.show-up.active.delay{
+    animation-delay:.5s;
+}
+.show-up.active.delay-more{
+    animation-delay:.8s;
+}
+
+#post-area{
+    .post{
+        display:flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap:10px;
+        .post-item{
+            width:240px;
+            height:230px;
+            padding:55px 12px;
+            background:#fff;
+            box-sizing:border-box;
+            color:#333;
+            position:relative;
+            p{
+                color:#333;
+                line-height:1.5;
+                font-size:15px;
+                background:#f7f7f7;
+                padding:6px;
+                position:relative;
+                .inner{
+                    display: -webkit-box;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    height: auto;
+                    word-break: break-all;
+                    cursor: pointer;
+                }
+                .more{
+                    float:right;
+                    margin-top:90px;
+                    height:20px;
+                    color:#ccc;
+                }
+            }
+            .bottom-area{
+                position:absolute;
+                bottom:20px;
+                left:16px;
+                display:flex;
+                justify-content:space-between;
+                width:200px;
+                .writer{
+                    font-size: 15px;
+                    color:#7e7e7e;
+                }
+                .delete{
+                    display:inline-block;
+                    color:#7e7e7e;
+                }
+            }
+        }
+    }
+}

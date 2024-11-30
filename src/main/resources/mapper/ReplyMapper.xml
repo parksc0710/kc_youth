@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kc.thanks.chap.mapper.ReplyMapper">
+    <insert id="saveReply">
+        INSERT INTO reply (
+        name, generation, password, content, background, LocalDateTime
+        )
+        VALUES (
+        #{name}, #{generation}, #{password}, #{content}, #{background}, #{localDateTime}
+        )
+    </insert>
+
+    <select id="findAll" resultType="reply">
+        SELECT *
+        FROM reply
+        ORDER BY localDateTime DESC
+    </select>
+
+    <select id="countAll">
+        SELECT COUNT(*)
+        FROM reply
+    </select>
+
+    <select id="selectPasswordById">
+        SELECT password
+        FROM reply
+        WHERE id = #{postId}
+    </select>
+
+    <delete id="deletePost">
+        DELETE FROM reply
+        WHERE id = #{postId}
+    </delete>
+
+    <select id="selectRepliesByName" resultType="Reply">
+        SELECT *
+        FROM reply
+        WHERE name LIKE CONCAT('%', #{searchByName}, '%')
+    </select>
+</mapper>

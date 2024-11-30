@@ -1,0 +1,38 @@
+//구글폰트 - Pretendard Variable
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+// font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+//구글폰트 - Raleway
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Raleway:wght@500;700;800;900&display=swap');
+//font-family: 'Raleway', sans-serif;
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;background-color:#111;color:$color-white;
+        @include mq('small-screen-2'){
+            font-size:55%
+        };
+        @include mq('small-screen-3'){
+            font-size:50%
+        };
+}
+body{font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
+ol,ul,li{list-style:none;}
+a{text-decoration:none;color:$color-white;}
+.container{
+    padding-left:320px;
+    @include mq('small-screen-1'){
+        padding-left:220px;
+    };
+    @include mq('small-screen-2'){
+        padding-left:100px;
+    };
+    @include mq('small-screen-3'){
+        margin:0 40px;
+        padding-left:0
+    };
+    &.wrapper{
+        padding-right:320px;
+    }
+}

@@ -1,0 +1,143 @@
+header{
+    width:100%;
+    height:100vh;
+    background-image:url(../images/rose_main.jpeg),-webkit-linear-gradient(to right, $color-primary 0%, $color-secondary 100%);
+    background-image:url(../images/rose_main.jpeg),-moz-linear-gradient(to right, $color-primary 0%, $color-secondary 100%);
+    background-image:url(../images/rose_main.jpeg),-o-linear-gradient(to right, $color-primary 0%, $color-secondary 100%);
+    background-image:url(../images/rose_main.jpeg),linear-gradient(to right, $color-primary 0%, $color-secondary 100%);
+    background-blend-mode:multiply;
+    background-size:cover;
+    position:relative;
+    @include mq('small-screen-1'){
+        height:80vh;
+        background-repeat:no-repeat;
+        background-position:50%;
+    };
+    @include mq('small-screen-2'){
+        height:75vh;
+        background-repeat:no-repeat;
+        background-position:50%;
+    };
+    @include mq('small-screen-3'){
+        height:65vh;
+        background-repeat:no-repeat;
+        background-position:50%;
+    };
+    
+    #header-text{
+        position:absolute;
+        bottom:5.5rem;
+        animation-name:moveUp;
+        animation-duration:1s;
+        animation-delay:.8s;
+        animation-fill-mode:backwards;
+
+        h1{
+        @include mq('small-screen-1'){
+            font-size:5.5rem
+        };
+        @include mq('small-screen-2'){
+            font-size:5.5rem
+        };
+        @include mq('small-screen-3'){
+            font-size:4.5rem
+        };
+        }
+        &-sub{
+            font-size:4rem;
+            font-weight:500;
+            @include mq('small-screen-1'){
+                font-size:3rem
+            };
+            @include mq('small-screen-2'){
+                font-size:3rem
+            };
+            @include mq('small-screen-3'){
+                font-size:2.4rem
+            };
+        }
+    }
+    #top-menu{
+        position:fixed;
+        top:10rem;
+        right:2rem;
+        font-size:1.2rem;
+        transform:rotate(90deg);
+        z-index:2121;
+        @include mq('small-screen-1'){
+            top:16rem;
+        }
+        @include mq('small-screen-2'){
+            display:none;
+        }
+        @include mq('small-screen-3'){
+            display:none;
+        };
+    }
+}
+.slide-text-wrapper {
+    .slide-container {
+      overflow: hidden;
+  
+      .slide-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      .slide {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        position: relative;
+  
+        &.original {
+          animation: 18s linear infinite normal none running infiniteAnimation1;
+        }
+        &.clone {
+          animation: 18s linear infinite infiniteAnimation2;
+        }
+  
+        li {
+          margin: 0 1.25rem;
+          .item {
+            width: max-content;
+            height: 100%;
+            color: var(--gray-scale-900, #1a1a1a);
+            font-size:30px;
+            font-weight: 700;
+            @include mq('small-screen-1'){
+                font-size:80px;
+            }
+            @include mq('small-screen-2'){
+                font-size:30px;
+            }
+            @include mq('small-screen-3'){
+                font-size:30px;
+            };
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes infiniteAnimation1 {
+    0% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+    50.1% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes infiniteAnimation2 {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }

@@ -1,0 +1,37 @@
+footer{
+    .footer-box{
+        display:flex;
+        flex-direction:column;
+        width:50%;
+        gap:4rem;
+        @include mq('small-screen-3'){
+            width:100%;
+            align-items:center;
+        };
+        h3{
+            font-size:2.6rem;
+            margin-bottom:1.2rem;
+            font-weight:600;
+        }
+        .sns-list{
+            display:flex;
+            font-size:2.4rem;
+            gap:3rem;
+            @include mq('small-screen-3'){
+                justify-content:space-around
+            };
+        }
+        #copyright{
+            font-size:1.3rem;
+            margin-bottom:5rem;
+            line-height:1.8;
+            color:$color-gray-light;
+            @include mq('small-screen-3'){
+                text-align:center
+            };
+        }
+    }
+    .valid_box{
+        padding:2rem 0;
+    }
+}

@@ -11,13 +11,13 @@ header {
       position: relative;
       z-index: 20;
       &.n1 {
-        background: url(static/assets/images/bg_item01.jpg) no-repeat center center / 100%;
+        background: url(../images/bg_item01.jpg) no-repeat center center / 100%;
       }
       &.n2 {
-        background: url(static/assets/images/bg_item02.jpg) no-repeat center center / 100%;
+        background: url(../images/bg_item02.jpg) no-repeat center center / 100%;
       }
       &.n3 {
-        background: url(static/assets/images/bg_item03.jpg) no-repeat center center / 100%;
+        background: url(../images/bg_item03.jpg) no-repeat center center / 100%;
       }
     }
   }
@@ -168,14 +168,14 @@ header {
     width:80px;
     height:80px;
     border-radius:50%;
-    background:url(static/assets/images/book.jpeg) no-repeat center center / 100%;
+    background:url(../images/book.jpeg) no-repeat center center / 100%;
     position:relative;
     &::before{
       content:'';
       display:inline-block;
       width:187px;
       height:46px;
-      background:url(static/assets/images/resi_item.png) no-repeat center center / 100%;
+      background:url(../images/resi_item.png) no-repeat center center / 100%;
       position:absolute;
       top:-60px;
       left:-17px;
@@ -234,19 +234,19 @@ header {
           background-position:center center;
           background-size: 100%;
           &.n1{
-            background-image:url(static/assets/images/ico_intro.png);
+            background-image:url(../images/ico_intro.png);
           }
           &.n2{
-            background-image:url(static/assets/images/ico_news.png);
+            background-image:url(../images/ico_news.png);
           }
           &.n3{
-            background-image:url(static/assets/images/ico_event.png);
+            background-image:url(../images/ico_event.png);
           }
           &.n4{
-            background-image:url(static/assets/images/ico_comment.png);
+            background-image:url(../images/ico_comment.png);
           }
           &.n5{
-            background-image:url(static/assets/images/ico_outro.png);
+            background-image:url(../images/ico_outro.png);
           }
         }
       }

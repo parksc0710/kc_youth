@@ -44,7 +44,7 @@ public class MainController {
         log.info("/reply/write으로 요청 들어옴! dto에 담긴 값 : " + dto);
         replyService.save(dto);
 
-        return "redirect:/index";
+        return "redirect:/index#section4";
     }
 
     @GetMapping("/reply/{searchName}")

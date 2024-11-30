@@ -9,7 +9,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 *{margin:0;padding:0;box-sizing:border-box;}
-html{font-size:62.5%;background-color:#111;color:$color-white;
+html{font-size:62.5%;color:#222;
         @include mq('small-screen-2'){
             font-size:55%
         };
@@ -17,11 +17,12 @@ html{font-size:62.5%;background-color:#111;color:$color-white;
             font-size:50%
         };
 }
-body{font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
+body{font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;box-sizing: border-box;
+}
 ol,ul,li{list-style:none;}
-a{text-decoration:none;color:$color-white;}
+a{text-decoration:none;color:#222}
 .container{
-    padding-left:320px;
+    padding-left:17.8947vw;
     @include mq('small-screen-1'){
         padding-left:220px;
     };
@@ -33,6 +34,6 @@ a{text-decoration:none;color:$color-white;}
         padding-left:0
     };
     &.wrapper{
-        padding-right:320px;
+        padding-right:17.8947vw;
     }
 }

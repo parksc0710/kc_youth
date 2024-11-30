@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/guide.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="/assets/scss/reset.css">
-    <link rel="stylesheet" href="/assets/scss/index.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -165,25 +165,25 @@
             <div class="card-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="./images/1q_card01.jpg" alt="">
+                        <img src="/assets/images/1q_card01.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card02.jpg" alt="">
+                        <img src="/assets/images/1q_card02.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card03.jpg" alt="">
+                        <img src="/assets/images/1q_card03.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card04.jpg" alt="">
+                        <img src="/assets/images/1q_card04.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card05.jpg" alt="">
+                        <img src="/assets/images/1q_card05.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card06.jpg" alt="">
+                        <img src="/assets/images/1q_card06.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./images/1q_card08.jpg" alt="">
+                        <img src="/assets/images/1q_card08.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -199,23 +199,23 @@
                     <span class="mini">* 자세한 참여방법 및 유의사항은 하단 '꼭! 확인하세요!'를 참고하세요</span>
                 </p>
             </div>
-            <span class="gift"><img src="./images/event_item01.png" alt=""></span>
+            <span class="gift"><img src="/assets/images/event_item01.png" alt=""></span>
             <div class="join">
                 <h5>HOW TO JOIN</h5>
                 <ul>
                     <li>
                         <span class="num">STEP1</span>
-                        <img src="./images/step01.png" alt="">
+                        <img src="/assets/images/step01.png" alt="">
                         <p>하단 댓글 영역에서<br>감사제목을 200자 이내로 작성하세요</p>
                     </li>
                     <li>
                         <span class="num">STEP2</span>
-                        <img src="./images/step02.png" alt="">
+                        <img src="/assets/images/step02.png" alt="">
                         <p>이름(또는 별명), 또래, 비밀번호를<br>정확하게 입력하세요</p>
                     </li>
                     <li>
                         <span class="num">STEP3</span>
-                        <img src="./images/step03.png" alt="">
+                        <img src="/assets/images/step03.png" alt="">
                         <p>‘등록’ 버튼을 누르고 리스트에<br>업로드가 되었는지 확인!</p>
                     </li>
                 </ul>
@@ -275,7 +275,7 @@
                             <!-- 이름 입력 -->
                             <div class="name box">
                                 <label for="name"><span class="txt">이름</span></label>
-                                <input class="w100" type="text" id="name" name="name" placeholder="2자 이상 입력(특수문자 불가)"  required>
+                                <input class="w100" type="text" id="name" name="name" placeholder="2자 이상 입력(특수문자 불가)" maxlength="5"  required>
                             </div>
 
                             <!-- 또래 입력 -->
@@ -321,7 +321,7 @@
 
                             <!-- 비밀번호 확인 -->
                             <div class="password box">
-                                <label for="password2"><span class="txt">비밀번호 확인</span></label>
+                                <label for="password2"><span class="txt n2">비밀번호 확인</span></label>
                                 <input class="w100" type="password" id="password2" placeholder="비밀번호 다시 입력" name="passwordConfirm" minlength="6" maxlength="6" required> <!-- id 명 passworld2로 변경-->
                             </div>
 
@@ -335,7 +335,7 @@
                     <h5>전체 (${replyCount})</h5>
                     <div class="search">
                         <input type="text" class="insearch" title="검색어 입력" placeholder="이름으로 작성 글 찾기">
-                        <a href="#this" class="in-btn">검색</a> <!-- 검색 버튼 클릭 시 /reply/{searchName}로 요청 보내는 이벤트 발생 필요 -->
+                        <a href="#this" onclick="javascript:clickSearch();" class="in-btn">검색</a> <!-- 검색 버튼 클릭 시 /reply/{searchName}로 요청 보내는 이벤트 발생 필요 -->
                     </div>
                 </div>
                 <ul class="post">
@@ -378,57 +378,57 @@
             <div class="container show-up delay">
                 <ul id="discography-albums">
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/hr64qwRgM84?si=fewY_hS4Pu3-mY8z"><img src="images/yt04.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/hr64qwRgM84?si=fewY_hS4Pu3-mY8z"><img src="/assets/images/yt04.jpg" alt=""></a>
                         <h3 class="bold">청년 1-2부 여름 연합수련회 리뷰</h3>
                         <span>08.15 - 17</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/sz5cNEL8N7k?si=tqEg4ribvpDKXtnE"><img src="images/yt03.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/sz5cNEL8N7k?si=tqEg4ribvpDKXtnE"><img src="/assets/images/yt03.jpg" alt=""></a>
                         <h3 class="bold">전도축제 청년부 워십</h3>
                         <span>11.04</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/s0ZZ3-bGerg?si=5wR3ge4uzPq4CF_6"><img src="images/yt02.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/s0ZZ3-bGerg?si=5wR3ge4uzPq4CF_6"><img src="/assets/images/yt02.jpg" alt=""></a>
                         <h3 class="bold">새가족 홈커밍데이 홍보영상</h3>
                         <span>06.30</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/LIR4djOWjac?si=Iq_6-YFlxBEXwQ_C"><img src="images/yt01.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/LIR4djOWjac?si=Iq_6-YFlxBEXwQ_C"><img src="/assets/images/yt01.jpg" alt=""></a>
                         <h3 class="bold">맑은샘광천교회 청년부 체육대회</h3>
                         <span>04.21(2청) - 04.28(1청)</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/AxJxAJ_5_ho?si=a00DSGzvRHOYhX8R"><img src="images/yt01.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/AxJxAJ_5_ho?si=a00DSGzvRHOYhX8R"><img src="/assets/images/yt01.jpg" alt=""></a>
                         <h3 class="bold">청년부 1&2 하반기 바베큐파티</h3>
                         <span>10.06(1청) - 10.13(2청)</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://www.youtube.com/watch?v=iewmfkwgYyo"><img src="images/yt02.jpg" alt=""></a>
+                        <a target="_blank" href="https://www.youtube.com/watch?v=iewmfkwgYyo"><img src="/assets/images/yt02.jpg" alt=""></a>
                         <h3 class="bold">1학기 찬양예배 리뷰</h3>
                         <span>05.12</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/yqaE9BuePS8?si=XiXvvjUJwcUwjhoS"><img src="images/yt03.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/yqaE9BuePS8?si=XiXvvjUJwcUwjhoS"><img src="/assets/images/yt03.jpg" alt=""></a>
                         <h3 class="bold">인도네시아 단기선교 보고영상</h3>
                         <span>07.14 - 25</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/U5nyf68M-D0?si=KgC4Z3nAmAuETrqR"><img src="images/yt04.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/U5nyf68M-D0?si=KgC4Z3nAmAuETrqR"><img src="/assets/images/yt04.jpg" alt=""></a>
                         <h3 class="bold">태국 단기선교 보고영상</h3>
                         <span>07.22 - 30</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/U5nyf68M-D0?si=KgC4Z3nAmAuETrqR"><img src="images/yt04.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/U5nyf68M-D0?si=KgC4Z3nAmAuETrqR"><img src="/assets/images/yt04.jpg" alt=""></a>
                         <h3 class="bold">1청 겨울수련회 리뷰</h3>
                         <span>02.29 - 03.02</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="https://youtu.be/yqaE9BuePS8?si=XiXvvjUJwcUwjhoS"><img src="images/yt04.jpg" alt=""></a>
+                        <a target="_blank" href="https://youtu.be/yqaE9BuePS8?si=XiXvvjUJwcUwjhoS"><img src="/assets/images/yt04.jpg" alt=""></a>
                         <h3 class="bold">2청 겨울수련회 리뷰</h3>
                         <span>01.18 - 20</span>
                     </li>
                     <li class="album-info">
-                        <a target="_blank" href="#;"><img src="images/yt04.jpg" alt=""></a>
+                        <a target="_blank" href="#;"><img src="/assets/images/yt04.jpg" alt=""></a>
                     </li>
                 </ul>
             </div>
@@ -497,97 +497,272 @@
     </div>
     <span class="dimm"></span>
 </div>
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-<script src="script/index.js"></script>
-<script>
-    function calHeight(){
-        $('ul .post-item .inner').each(function(){
-            var rvTxt = $(this).find('.contain').height();
-            if(rvTxt < 120){
-                $(this).find('.more').hide();
-                $(this).css("pointer-events","none");
-            }else{
-                $(this).addClass('more-layer')
-            }
-        })
-    };
-    $(document).ready(function() {
-        // 삭제 버튼 클릭 시 팝업 열기
-        $("body").on('click', '.delete', function (e) {
-            e.preventDefault();
-
-            // 클릭된 .post-item에서 name 정보를 추출
-            const postItem = $(this).closest('.post-item'); // 클릭된 버튼의 상위 .post-item
-            const name = postItem.find('.writer').text().trim(); // .writer 클래스에서 이름 추출
-
-            // 팝업에 이름 정보를 동적으로 삽입
-            $('#deleteName .name-info').text(name);
-
-            // 삭제 팝업을 표시
-            $('.layer-popup.delete-wrap').show();
-
-            // 삭제하기 버튼 클릭 시 AJAX로 삭제 요청 보내기
-            $("body").on('click', '.delete-wrap .btn.n1', function (e) {
-                e.preventDefault();
-
-                // 삭제할 게시물 ID 등 필요한 정보를 추출
-                const postId = postItem.data('id');  // 예: <li class="post-item" data-id="123">
-                const password = $('#delPassword').val(); // 사용자가 입력한 비밀번호
-
-                if (!password || password.length !== 6) {
-                    alert("비밀번호를 6자리로 입력해주세요.");
-                    return;
+    <script>
+        function calHeight(){
+            $('ul .post-item .inner').each(function(){
+                var rvTxt = $(this).find('.contain').height();
+                if(rvTxt < 144){
+                    $(this).find('.more').hide();
+                    $(this).css("pointer-events","none");
+                }else{
+                    $(this).addClass('more-layer')
                 }
+            })
+        };
+        $(document).ready(function(){
+            calHeight();
 
-                // AJAX 요청을 통해 서버로 삭제 요청 보내기
-                $.ajax({
-                    url: '/delete',  // 서버의 삭제 엔드포인트
-                    type: 'POST',
-                    data: {
-                        postId: postId,
-                        password: password
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            alert('게시물이 삭제되었습니다.');
-                            // 팝업 닫기
-                            $('.layer-popup.delete-wrap').hide();
-                            // 삭제된 게시물을 화면에서 제거
-                            window.location.href = '/index';  // index 페이지로 이동
-                        } else {
-                            alert(response.message);
-                        }
-                    },
-                    error: function () {
-                        alert('서버 요청 중 오류가 발생했습니다.');
-                        // 팝업 닫기
-                        $('.layer-popup.delete-wrap').hide();
-                    }
-                });
+            $("body").on('click', '.more-layer', function(e){
+                e.preventDefault();
+                $('.layer-popup.more-wrap').show();
+                $('#resigter, .quick-menu').css('z-index','0');
+            });
+            $("body").on('click', '.layer-popup', function(e){
+                e.preventDefault();
+                $('.layer-popup.more-wrap').hide();
+                $('#resigter, .quick-menu').css('z-index','50');
+            });
+            //삭제 버튼
+            $("body").on('click', '.delete', function(e){
+                e.preventDefault();
+                $('.layer-popup.delete-wrap').show();
+                $('#resigter, .quick-menu').css('z-index','0');
+            });
+            $("body").on('click', '.delete-wrap .btn.n2', function(e){
+                e.preventDefault();
+                $('.layer-popup.delete-wrap').hide();
+                $('#resigter, .quick-menu').css('z-index','50');
+            });
+        })
+        "use strict"
+
+        // Adding scroll event listener
+        document.addEventListener('scroll', horizontalScroll);
+
+        //Selecting Elements
+        let sticky = document.querySelector('.sticky');
+        let stickyParent = document.querySelector('.sticky-parent');
+
+        let scrollWidth = sticky.scrollWidth;
+        let verticalScrollHeight = stickyParent.getBoundingClientRect().height-sticky.getBoundingClientRect().height;
+
+        //Scroll function
+        function horizontalScroll(){
+
+            //Checking whether the sticky element has entered into view or not
+            let stickyPosition = sticky.getBoundingClientRect().top;
+            if(stickyPosition > 1){
+                return;
+            }else{
+                let scrolled = stickyParent.getBoundingClientRect().top; //how much is scrolled?
+                sticky.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
+
+            }
+        }
+
+    </script>
+    <script>
+        const { Engine, Render, Runner, World, Bodies, Body, Mouse, MouseConstraint, Events, Vertices } = Matter;
+
+        const engine = Engine.create();
+        const world = engine.world;
+
+        const charactersData = [
+            { imagePath: '/assets/images/mimo01.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo13.png', width: 160, height: 160, scale:0.9 },
+            { imagePath: '/assets/images/mimo04.png', width: 320, height: 320, scale:1 },
+            { imagePath: '/assets/images/mimo02.png', width: 320, height: 320, scale:1 },
+            { imagePath: '/assets/images/mimo05.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo07.png', width: 320, height: 320, scale:1 },
+            { imagePath: '/assets/images/mimo06.png', width: 320, height: 320, scale:1 },
+            { imagePath: '/assets/images/mimo09.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo11.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo08.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo14.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo15.png', width: 320, height: 320, scale:0.9 },
+            { imagePath: '/assets/images/mimo12.png', width: 320, height: 320, scale:0.9 },
+        ];
+
+        engine.world.gravity.y = 0;
+        const globalCharacterRatio = 0.45;
+        const globalCharacterRestitution = 0.1;
+        const globalCharacterFriction = 0.005;
+        const globalCharacterFrictionAir = 0.02;
+        const globalCharacterAngularDamping = 0.02;
+
+        const globalForceDistance = 200;
+        const globalForceMagnitude = 0.01;
+
+
+
+
+        const renderBox = document.getElementById('mimoCanvas');
+
+        const render = Render.create({
+            element: renderBox,
+            engine: engine,
+            options: {
+                width: renderBox.offsetWidth,
+                height: renderBox.offsetHeight,
+                wireframes: false,
+                background: 'transparent',
+                pixelRatio: window.devicePixelRatio
+            }
+        });
+
+        let boundaries;
+        Render.run(render);
+        const runner = Runner.create();
+        Runner.run(runner, engine);
+
+        const characters = [];
+
+        function getRandomPosition(maxWidth, maxHeight) {
+            const x = Math.random() * maxWidth;
+            const y = Math.random() * (maxHeight * 0.3) - 300;
+            return { x, y };
+        }
+
+        Events.on(engine, 'beforeUpdate', function() {
+            const center1 = { x: renderBox.offsetWidth * 0.35, y: renderBox.offsetHeight / 2 };
+            const center2 = { x: renderBox.offsetWidth * 0.65, y: renderBox.offsetHeight / 2 };
+            characters.forEach(character => {
+                const deltaX1 = center1.x - character.position.x;
+                const deltaY1 = center1.y - character.position.y;
+                const distance1 = Math.sqrt(deltaX1 * deltaX1 + deltaY1 * deltaY1);
+
+                const deltaX2 = center2.x - character.position.x;
+                const deltaY2 = center2.y - character.position.y;
+                const distance2 = Math.sqrt(deltaX2 * deltaX2 + deltaY2 * deltaY2);
+
+                const closerCenter = distance1 < distance2 ? center1 : center2;
+                const deltaX = closerCenter.x - character.position.x;
+                const deltaY = closerCenter.y - character.position.y;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                const forceMagnitude = 0.0001 * Math.max(1, distance);
+
+                const force = {
+                    x: (deltaX / distance) * forceMagnitude,
+                    y: (deltaY / distance) * forceMagnitude
+                };
+
+                Matter.Body.applyForce(character, character.position, force);
             });
         });
-    });
-</script>
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-<script src="/assets/script/index.js"></script>
-<script>
-    function calHeight(){
-        $('ul .post-item .inner').each(function(){
-            var rvTxt = $(this).find('.contain').height();
-            console.log(rvTxt);
-            if(rvTxt < 120){
-                $(this).find('.more').hide();
-                $(this).css("pointer-events","none");
+
+        const mouse = Mouse.create(render.canvas);
+        const mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
             }
-        })
-    };
-    $(document).ready(function(){
-        calHeight();
-    })
-</script>
+        });
+        World.add(world, mouseConstraint);
+        render.mouse = mouse;
+
+        Events.on(mouseConstraint, 'mousemove', (event) => {
+            const mousePosition = mouse.position;
+
+            characters.forEach(character => {
+                const deltaX = character.position.x - mousePosition.x;
+                const deltaY = character.position.y - mousePosition.y;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+
+
+                if (distance < globalForceDistance) {
+                    const forceMagnitude = globalForceMagnitude * (globalForceDistance - distance)
+                    const force = {
+                        x: deltaX / distance * forceMagnitude,
+                        y: deltaY / distance * forceMagnitude
+                    };
+
+                    Matter.Body.applyForce(character, character.position, force);
+                }
+            });
+        });
+
+        function createCharacter(characterData, ratio = 1) {
+            const { imagePath, width, height, scale } = characterData;
+            const { x, y } = getRandomPosition(renderBox.offsetWidth, renderBox.offsetHeight);
+
+            const vertices = [];
+            const sides = 50;
+            const angleStep = (Math.PI * 2) / sides;
+
+            for (let i = 0; i < sides; i++) {
+                const angle = i * angleStep;
+                const vertexX = (width / 2) * Math.cos(angle) * ratio * globalCharacterRatio;
+                const vertexY = (height / 2) * Math.sin(angle) * ratio * globalCharacterRatio;
+                vertices.push({ x: vertexX, y: vertexY });
+            }
+
+            const character = Bodies.fromVertices(x, y, [vertices], {
+                restitution: globalCharacterRestitution,
+                friction: globalCharacterFriction,
+                frictionAir: globalCharacterFrictionAir,
+                angularDamping: globalCharacterAngularDamping,
+
+                render: {
+                    sprite: {
+                        texture: imagePath,
+                        xScale: scale * ratio * globalCharacterRatio,
+                        yScale: scale * ratio * globalCharacterRatio
+                    }
+                }
+            });
+
+            character.inertia = Infinity;
+            character.maxAngularVelocity = 0.1;
+            return character;
+        }
+
+        function resetCharacters() {
+            World.remove(world, characters);
+            characters.length = 0;
+
+
+            const ratio = renderBox.offsetWidth / 1000;
+            charactersData.forEach(characterData => {
+                const character = createCharacter(characterData, ratio);
+                characters.push(character);
+                World.add(world, character);
+            });
+        }
+
+        function updateCharacterScales(ratio) {
+            characters.forEach(character => {
+                const scale = character.render.sprite.xScale / globalCharacterRatio;
+                const newScale = scale * ratio;
+
+                character.render.sprite.xScale = newScale;
+                character.render.sprite.yScale = newScale;
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            render.options.width = renderBox.offsetWidth;
+            render.options.height = renderBox.offsetHeight;
+            render.canvas.width = renderBox.offsetWidth;
+            render.canvas.height = renderBox.offsetHeight;
+            resetCharacters();
+        });
+
+        resetCharacters();
+
+        $(document).ready(function() {
+            // 기본 스크롤 동작 허용
+            $('#mimoCanvas canvas').on('wheel', function(event) {
+                // 기본 동작을 막지 않도록 주석 처리 또는 제거
+                // event.preventDefault();
+            });
+        });
+    </script>
+
+    <script src="/assets/script/index.js"></script>
 </body>
 </html>

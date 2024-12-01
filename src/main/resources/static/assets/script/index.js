@@ -376,7 +376,7 @@ function renderSearchResults(replyList) {
     replyList.forEach(reply => {
         const postItem = `
             <li class="post-item ${reply.background}" data-id="${reply.id}">
-                <p><span class="inner"><span class="more">더보기</span><span class="contain">${reply.content}</span></span></p>
+                <p><span class="inner"><span class="contain"><span class="more">더보기</span>${reply.content}</span></span></p>
                 <div class="bottom-area">
                     <span class="writer">${reply.name}&nbsp;${reply.generation.substring(2)}</span>
                     <div class="time"><span>${reply.regDate}</span></div>
@@ -440,7 +440,7 @@ document.getElementById('submit-button').onclick = e => {
 
     if (checkResultList.includes(false)) {
         if (!checkResultList[0]) {
-            msg += '-이름은 공백없이 영문 대소문자 또는 한글 2자 이상으로 입력해 주세요(특수문자 불가).\n';
+            msg += '-이름은 공백없이 영문 대소문자 또는 한글 2자 이상으로 입력해 주세요(특수문자, 공백 불가).\n';
         }
         if (!checkResultList[1]) {
             msg += '-또래를 선택해 주세요.\n';

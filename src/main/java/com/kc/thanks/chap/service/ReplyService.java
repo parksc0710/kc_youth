@@ -1,5 +1,6 @@
 package com.kc.thanks.chap.service;
 
+import com.kc.thanks.chap.common.Page;
 import com.kc.thanks.chap.dto.requestDTO.ReplyDeleteRequestDTO;
 import com.kc.thanks.chap.dto.responseDTO.ReplyListResponseDTO;
 import com.kc.thanks.chap.entity.Reply;
@@ -26,10 +27,11 @@ public class ReplyService {
         mapper.saveReply(reply);
     }
 
-    public List<ReplyListResponseDTO> findAll() {
+    public List<ReplyListResponseDTO> findAll(Page page) {
         log.info("service에 replyList 요청 들어 옴!");
         List<ReplyListResponseDTO> dtoList = new ArrayList<>();
-        List<Reply> replies = mapper.findAll();
+        log.info("page에 들어있는 값: " + page.toString());
+        List<Reply> replies = mapper.findAll(page);
         for (Reply reply : replies) {
             ReplyListResponseDTO dto = new ReplyListResponseDTO(reply);
             dtoList.add(dto);
@@ -63,7 +65,6 @@ public class ReplyService {
         }
     }
 
-
     public List<ReplyListResponseDTO> findByName(String name) {
         List<ReplyListResponseDTO> dtoList = new ArrayList<>();
         List<Reply> replies = mapper.selectRepliesByName(name);
@@ -73,4 +74,5 @@ public class ReplyService {
         }
         return dtoList;
     }
+
 }

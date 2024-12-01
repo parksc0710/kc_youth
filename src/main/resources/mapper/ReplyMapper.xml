@@ -12,10 +12,12 @@
         )
     </insert>
 
-    <select id="findAll" resultType="reply">
+    <select id="findAll" resultType="Reply">
         SELECT *
         FROM reply
         ORDER BY localDateTime DESC
+        OFFSET #{page.pageStart} ROWS
+        FETCH NEXT #{page.amount} ROWS ONLY
     </select>
 
     <select id="countAll">

@@ -1,5 +1,7 @@
 package com.kc.thanks.chap.controller;
 
+import com.kc.thanks.chap.common.Page;
+import com.kc.thanks.chap.common.PageMaker;
 import com.kc.thanks.chap.dto.requestDTO.ReplyDeleteRequestDTO;
 import com.kc.thanks.chap.dto.requestDTO.ReplyWriteRequestDTO;
 import com.kc.thanks.chap.dto.responseDTO.ReplyListResponseDTO;
@@ -25,19 +27,27 @@ public class MainController {
     private final ReplyService replyService;
 
     @GetMapping("/index")
-    public String index(Model model, HttpSession session) {
+    public String index(Model model, @ModelAttribute("p") Page page, HttpSession session) {
         log.info("index로 요청 들어옴!");
+        log.info("pageNo: {}", page.getPageNo());
 
-        // reply list를 요청하는 로직
-        List<ReplyListResponseDTO> replyList = replyService.findAll();
-        model.addAttribute("replyList", replyList);
+        // reply list를 요청하는 로직 (페이지 당 12개 보여주기)
+        List<ReplyListResponseDTO> replyList = replyService.findAll(page);
 
         // 전체 reply 갯수를 요청하는 로직
         int replyCount = replyService.countAll();
+
+        // 페이지 버튼 만들기
+        PageMaker pageMaker = new PageMaker(page, replyCount);
+
+        model.addAttribute("replyList", replyList);
         model.addAttribute("replyCount", replyCount);
+        model.addAttribute("maker", pageMaker);
 
         return "chap/index";
     }
+
+
 
     @PostMapping("/reply/write")
     public String replyWrite(ReplyWriteRequestDTO dto, HttpSession session) {

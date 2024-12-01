@@ -353,16 +353,33 @@
                 </ul>
                 <div class="pager">
                     <ul>
-                        <li class="prev cm"><a href=""><span>prev</span></a></li>
-                        <li><a class="on" href=""><span>1</span></a></li>
-                        <li><a href=""><span>2</span></a></li>
-                        <li><a href=""><span>3</span></a></li>
-                        <li><a href=""><span>4</span></a></li>
-                        <li><a href=""><span>5</span></a></li>
-                        <li><a href=""><span>6</span></a></li>
-                        <li><a href=""><span>7</span></a></li>
-                        <li><a href=""><span>8</span></a></li>
-                        <li class="next cm"><a href=""><span>next</span></a></li>
+                        <c:if test="${maker.page.pageNo != 1}">
+                            <li class="page-item"><a class="page-link"
+                                                     href="/index?pageNo=1&amount=${p.amount}#section4"><span>&lt;</span></a>
+                            </li>
+                        </c:if>
+
+                        <c:forEach var="i" begin="${maker.begin}" end="${maker.end}">
+                            <c:if test="${maker.page.pageNo != i}">
+                                <li data-page-num="${i}" class="page-item">
+                                    <a class="page-link"
+                                       href="/index?pageNo=${i}&amount=${p.amount}#section4"><span>${i}</span></a>
+                                </li>
+                            </c:if>
+                            <c:if test="${maker.page.pageNo == i}">
+                                <li data-page-num="${i}" class="page-item hover">
+                                    <a class="page-link"
+                                       href="/index?pageNo=${i}&amount=${p.amount}#section4"><span>${i}</span></a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+
+                        <c:if test="${maker.page.pageNo != maker.finalPage}">
+                            <li class="page-item"><a class="page-link"
+                                                     href="/index?pageNo=${maker.finalPage}&amount=${p.amount}#section4"><span>&gt;</span></a>
+                            </li>
+                        </c:if>
+
                     </ul>
                 </div>
             </div>

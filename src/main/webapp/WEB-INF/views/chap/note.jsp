@@ -9,6 +9,7 @@
     <title>2025 말씀노트 판매</title>
     <link rel="stylesheet" href="/assets/css/resetfornote.css">
     <link rel="stylesheet" href="/assets/css/note.css">
+    <script src="/assets/script/note.js"></script>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 </head>
 <header>
@@ -19,11 +20,11 @@
     <div class="note-box">
         <div class="row">
             <span class="s-txt">이름<em>*</em></span>
-            <input type="text" class="input-style" placeholder="예) 김교회" maxlength="6">
+            <input type="text" id="name" class="input-style" placeholder="예) 김교회" maxlength="6">
         </div>
         <div class="row">
             <span class="s-txt">연락처<em>*</em></span>
-            <input type="text" class="input-style" placeholder="예) 010-1234-5678">
+            <input type="text" id="contact" class="input-style" placeholder="예) 010-1234-5678">
         </div>
         <div class="row">
             <span class="s-txt">예약 수량<em>*</em></span>
@@ -53,7 +54,7 @@
                     <span>기타</span>
                 </label>
                 <div class="etc n1" style="display:none;">
-                    <input class="input-style yet" type="text" placeholder="권 수를 입력하세요">
+                    <input id="quantity_etc_input" class="input-style yet" type="text" placeholder="권 수를 입력하세요">
                 </div>
             </div>
         </div>
@@ -61,19 +62,19 @@
             <span class="s-txt">수령 방법<em>*</em></span>
             <div class="radio">
                 <label class="flex">
-                    <input type="radio" onchange="setDisplay2()" name="receive" value="r1" checked />
+                    <input type="radio" onchange="setDisplay2()" name="receive" value="C" checked />
                     <span class="word"><strong>현장수령</strong><span class="mini">맑은샘광천교회 주일 청년부예배 전후 본당 로비<br>(12/15~12/31)</span></span>
                 </label>
                 <label class="flex">
-                    <input type="radio" onchange="setDisplay2()" id="parcel" name="receive" value="r2" />
+                    <input type="radio" onchange="setDisplay2()" id="parcel" name="receive" value="D" />
                     <span class="word"><strong>택배 발송</strong><span class="mini">택배비 5권당 4,000원</span></span>
                 </label>
                 <div class="etc n2" style="display:none;">
-                    <input class="input-style yet" type="text" name="receive" placeholder="배송 받으실 주소를 정확히 입력하세요">
+                    <input id="addr" class="input-style yet" type="text" name="receive" placeholder="배송 받으실 주소를 정확히 입력하세요">
                 </div>
             </div>
         </div>
-        <a href="" onclick="javascript:submitInfo();" class="pp-btn"><span>사전예약 신청하기</span></a>
+        <button type="button" id="noteApply" class="pp-btn"><span>사전예약 신청하기</span></button>
         <span class="alert">* 하단 신청하기 버튼 제출 시 개인정보 수집에 동의한 것으로 간주됩니다.</span>
     </div>
     <div class="margin-box"></div>
@@ -89,24 +90,5 @@
 <footer class="section">
      <a href="http://pf.kakao.com/_xcBxouM"><img src="/assets/images/note_03.jpg"></a>
 </footer>
-<script>
-    function setDisplay(){
-        if($('input:radio[id=q_etc]').is(':checked')){
-            $('.etc.n1').show();
-        }else{
-            $('.etc.n1').hide();
-        }
-    }
-    function setDisplay2(){
-        if($('input:radio[id=parcel]').is(':checked')){
-            $('.etc.n2').show();
-        }else{
-            $('.etc.n2').hide();
-        }
-    }
-    function submitInfo(){
-        alert('제출합니다~!')
-    }
-</script>
 </body>
 </html>

@@ -26,8 +26,6 @@ public class NoteController {
     @GetMapping("/note")
     public String index(Model model, HttpSession session) {
         log.info("note page로 요청 들어옴!");
-
-
         return "chap/note";
     }
 

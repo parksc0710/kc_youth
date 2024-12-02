@@ -1,0 +1,269 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	/*color: #000;*/
+	font-style: normal;
+}
+
+html {
+	height: 100%;
+	margin: 0 auto;
+}
+
+body {
+	/* height: 100%; */
+	font-size: 100%;
+	color: #333;
+	font-family: "Pretendard", sans-serif;
+	font-size: 10px;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+.wrap {
+	position: relative;
+	max-width: 213.333vw;
+	margin: 0 auto;
+}
+
+.skip a {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	left: -1000vw;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	color: #fff;
+	font-size: 20px;
+	background-color: #333;
+}
+.skip a:focus {
+	left: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+.row-c {
+	position: relative;
+	width: 1280px;
+	margin: 0 auto;
+}
+
+input {
+	outline: none;
+}
+
+table caption {
+	position: absolute;
+	left: -99999999vw;
+}
+
+*::placeholder {
+	color: #787e85;
+	font-weight: 400;
+	font-size: 3.889vw;
+}
+
+figcaption {
+	height: 0;
+	overflow: hidden;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button {
+	border: 0;
+	cursor: pointer;
+	background: none;
+	font-family: "Pretendard", sans-serif;
+}
+
+.is-blind {
+	position: absolute;
+	left: -9999em;
+}
+
+.rokaf {
+	font-family: "rokaf-slab", sans-serif !important;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.themeTxtPoint01 {
+	color: #f70f66;
+}
+
+[class*=d-flex] {
+	display: flex;
+}
+[class*=d-flex].f-wrap {
+	flex-wrap: wrap;
+}
+
+.d-block {
+	display: block;
+}
+
+.d-flex-s-s {
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.d-flex-s-c {
+	justify-content: flex-start;
+	align-items: center;
+}
+.d-flex-s-e {
+	justify-content: flex-start;
+	align-items: end;
+}
+.d-flex-c-s {
+	justify-content: center;
+	align-items: flex-start;
+}
+.d-flex-c-c {
+	justify-content: center;
+	align-items: center;
+}
+.d-flex-c-e {
+	justify-content: center;
+	align-items: end;
+}
+.d-flex-e-s {
+	justify-content: end;
+	align-items: flex-start;
+}
+.d-flex-e-c {
+	justify-content: end;
+	align-items: center;
+}
+.d-flex-e-e {
+	justify-content: end;
+	align-items: end;
+}
+.d-flex-sb-s {
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.d-flex-sb-c {
+	justify-content: space-between;
+	align-items: center;
+}
+.d-flex-sb-e {
+	justify-content: space-between;
+	align-items: end;
+}
+
+.tac {
+	text-align: center !important;
+}
+
+.ovh {
+	overflow: hidden;
+}
+
+.pageTab + *[class$=-container] {
+	height: calc(100% - 10vw);
+	overflow-y: auto;
+}
+
+.p-sticky {
+	position: sticky;
+	top: 0;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.zoomimg {
+	overflow: hidden;
+}
+.zoomimg img {
+	transition: 0.2s;
+}
+.zoomimg img:hover {
+	transform: scale(1.1, 1.1);
+}

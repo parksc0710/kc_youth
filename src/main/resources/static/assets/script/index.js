@@ -47,6 +47,7 @@ $(document).ready(function () {
     const newsSwiper = new Swiper(".card-swiper", {
         effect: "cards",
         grabCursor: true,
+        allowTouchMove : false,
     });
 
     // 삭제 버튼 클릭 시 팝업 열기

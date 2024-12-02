@@ -1680,6 +1680,9 @@ header #top-menu {
 .pager ul li.cm.next a {
   background: url(../images/ico_arrow_mini.png) no-repeat center center/24%;
 }
+.pager ul li.hover a {
+  border-bottom: 2px solid #fff;
+}
 
 footer {
   background: #222;

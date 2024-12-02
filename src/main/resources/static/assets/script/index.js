@@ -54,6 +54,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         // 클릭된 .post-item에서 name 정보를 추출
+        delTargetPostObj = $(this).closest('.post-item');
         const postItem = $(this).closest('.post-item'); // 클릭된 버튼의 상위 .post-item
         const name = postItem.find('.writer').text().trim(); // .writer 클래스에서 이름 추출
 
@@ -65,54 +66,57 @@ $(document).ready(function () {
 
         // 삭제 팝업 표시 시 비밀번호 입력란 초기화
         $('#delPassword').val('');
+    });
 
+    // 삭제하기 버튼 클릭 시 AJAX로 삭제 요청 보내기
+    $("body").on('click', '.delete-wrap .btn.n1', function (e) {
+        e.preventDefault();
 
-        // 삭제하기 버튼 클릭 시 AJAX로 삭제 요청 보내기
-        $("body").on('click', '.delete-wrap .btn.n1', function (e) {
-            e.preventDefault();
+        // 삭제할 게시물 ID 등 필요한 정보를 추출
+        const postItem = delTargetPostObj; // 삭제 대상 Object
+        const postId = postItem.data('id');  // 예: <li class="post-item" data-id="123">
+        const password = $('#delPassword').val(); // 사용자가 입력한 비밀번호
 
-            // 삭제할 게시물 ID 등 필요한 정보를 추출
-            const postId = postItem.data('id');  // 예: <li class="post-item" data-id="123">
-            const password = $('#delPassword').val(); // 사용자가 입력한 비밀번호
+        if (!password || password.length !== 6) {
+            alert("비밀번호를 6자리로 입력해주세요.");
+            return;
+        }
 
-            if (!password || password.length !== 6) {
-                alert("비밀번호를 6자리로 입력해주세요.");
-                return;
-            }
-
-            // AJAX 요청을 통해 서버로 삭제 요청 보내기
-            $.ajax({
-                url: '/delete',  // 서버의 삭제 엔드포인트
-                type: 'POST',
-                data: {
-                    postId: postId,
-                    password: password
-                },
-                success: function (response) {
-                    if (response.success) {
-                        alert('게시물이 삭제되었습니다.');
-                        // 팝업 닫기
-                        $('.layer-popup.delete-wrap').hide();
-                        // 삭제된 게시물을 화면에서 제거
-                        postItem.remove();
-                        if (response.replyCount !== undefined) {
-                            $('.top-info h5').text(`전체 (${response.replyCount})`);
-                        }
-                    } else {
-                        alert(response.message);
-                    }
-                },
-                error: function () {
-                    alert('서버 요청 중 오류가 발생했습니다.');
+        // AJAX 요청을 통해 서버로 삭제 요청 보내기
+        $.ajax({
+            url: '/delete',  // 서버의 삭제 엔드포인트
+            type: 'POST',
+            data: {
+                postId: postId,
+                password: password
+            },
+            success: function (response) {
+                if (response.success) {
+                    alert('게시물이 삭제되었습니다.');
                     // 팝업 닫기
                     $('.layer-popup.delete-wrap').hide();
+                    // 삭제된 게시물을 화면에서 제거
+                    postItem.remove();
+                    if (response.replyCount !== undefined) {
+                        $('.top-info h5').text(`전체 (${response.replyCount})`);
+                    }
+                } else {
+                    alert(response.message);
                 }
-            });
+            },
+            error: function () {
+                alert('서버 요청 중 오류가 발생했습니다.');
+            },
+            complete: function () {
+                delTargetPostObj = null;
+                $('.layer-popup.delete-wrap').hide();
+            }
         });
     });
 });
 const sections = $(".section");
 const speed = 850;
+let delTargetPostObj = null;
 
 //스크롤 애니메이션
 $(window).on("scroll", function () {

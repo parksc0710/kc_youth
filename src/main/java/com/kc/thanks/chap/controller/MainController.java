@@ -26,6 +26,11 @@ import java.util.Map;
 public class MainController {
     private final ReplyService replyService;
 
+    @GetMapping("/")
+    public String redirectToPage() {
+        return "redirect:/index";
+    }
+
     @GetMapping("/index")
     public String index(Model model, @ModelAttribute("p") Page page, HttpSession session) {
         log.info("index로 요청 들어옴!");

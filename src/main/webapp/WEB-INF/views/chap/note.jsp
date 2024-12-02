@@ -12,7 +12,7 @@
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 </head>
 <header>
-    <img src="/assets/images/note_01.jpeg">
+    <img src="/assets/images/note_01.jpg">
 </header>
 <main id="noteSell">
     <h2><strong>예약정보 입력</strong></h2>
@@ -69,7 +69,7 @@
                     <span class="word"><strong>택배 발송</strong><span class="mini">택배비 5권당 4,000원</span></span>
                 </label>
                 <div class="etc n2" style="display:none;">
-                    <input class="input-style yet" type="text" name="receive" placeholder="배송받으실 주소를 정확히 입력하세요">
+                    <input class="input-style yet" type="text" name="receive" placeholder="배송 받으실 주소를 정확히 입력하세요">
                 </div>
             </div>
         </div>

@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kc.thanks.chap.mapper.NoteMapper">
+    <insert id="saveNote" parameterType="com.kc.thanks.chap.dto.requestDTO.NoteWriteRequestDTO">
+        INSERT INTO note (
+        name, contact, cnt, type, addr, use_yn, reg_dt, chg_dt
+        )
+        VALUES (
+        #{name}, #{contact}, #{cnt}, #{type}, #{addr}, #{use_yn}, #{reg_dt}, #{chg_dt}
+        )
+    </insert>
+
+</mapper>

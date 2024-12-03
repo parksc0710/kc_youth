@@ -1,7 +1,9 @@
 package com.kc.thanks.chap.controller;
 
 import com.kc.thanks.chap.dto.requestDTO.NoteWriteRequestDTO;
+import com.kc.thanks.chap.dto.responseDTO.ReplyListResponseDTO;
 import com.kc.thanks.chap.service.NoteService;
+import com.kc.thanks.chap.service.ReplyService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -22,8 +26,6 @@ public class NoteController {
     @GetMapping("/note")
     public String index(Model model, HttpSession session) {
         log.info("note page로 요청 들어옴!");
-
-
         return "chap/note";
     }
 
